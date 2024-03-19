@@ -8,26 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Ryan\\.nuget\\packages\\": {}
+    "/Users/jasontcrabtree/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ryan\\Documents\\Development\\EnviroNZ_Test\\aspnet-api\\aspnet-api\\aspnet-api.csproj",
+      "projectUniqueName": "/Users/jasontcrabtree/dev/2024-projects/EnviroNZ_Test/aspnet-api/aspnet-api/aspnet-api.csproj",
       "projectName": "aspnet-api",
-      "projectPath": "C:\\Users\\Ryan\\Documents\\Development\\EnviroNZ_Test\\aspnet-api\\aspnet-api\\aspnet-api.csproj",
-      "packagesPath": "C:\\Users\\Ryan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ryan\\Documents\\Development\\EnviroNZ_Test\\aspnet-api\\aspnet-api\\obj\\",
+      "projectPath": "/Users/jasontcrabtree/dev/2024-projects/EnviroNZ_Test/aspnet-api/aspnet-api/aspnet-api.csproj",
+      "packagesPath": "/Users/jasontcrabtree/.nuget/packages/",
+      "outputPath": "/Users/jasontcrabtree/dev/2024-projects/EnviroNZ_Test/aspnet-api/aspnet-api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/jasontcrabtree/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -56,6 +54,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.25, 6.0.25]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-x64",
+            "version": "[6.0.25, 6.0.25]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.25, 6.0.25]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -64,7 +76,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
