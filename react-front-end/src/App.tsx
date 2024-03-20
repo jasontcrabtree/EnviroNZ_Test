@@ -14,25 +14,25 @@ function App() {
   const [suburbName, setSuburbName] = useState<string>("");
 
   const handleFetchSuburb = async (e: React.FormEvent) => {
-    console.log('Form submitted')
     e.preventDefault();
 
     const formData = new FormData(e.target as HTMLFormElement);
 
-    // const response = await fetch(`${API_ENDPOINT}/suburb/search?latitude=${formData.get('latitude')}&longitude=${formData.get('longitude')}`, {
-    //   method: "GET",
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    // })
-    const response = await fetch(`${API_ENDPOINT}/suburb/`,)
+    // const response = await fetch(`${API_ENDPOINT}/suburb/`,)
+    const response = await fetch(`${API_ENDPOINT}/suburb/search?latitude=${formData.get('latitude')}&longitude=${formData.get('longitude')}`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
 
     if (!response.ok) throw new Error("Failed to fetch suburb data")
 
-    const suburbs: Suburb[] = await response.json();
-    console.log('suburbs', suburbs)
+    const suburb: Suburb = await response.json();
 
-    setSuburbName(suburbs[0].suburbName);
+    console.log('suburbs', suburb)
+
+    setSuburbName(suburb.suburbName || "Null");
   }
 
   return (

@@ -7,10 +7,11 @@ namespace aspnet_api.Services
     public class SuburbService
     {
 
-        static List<Suburb>? Suburbs { get; }
+        static List<Suburb>? Suburbs = new List<Suburb>();
         static SuburbService()
         {
-            Suburbs = JsonSerializer.Deserialize<List<Suburb>>(File.ReadAllText("data/suburb.json"));
+            var json = File.ReadAllText("Data/Suburb.json");
+            Suburbs = JsonSerializer.Deserialize<List<Suburb>>(json);
         }
         public static List<Suburb>? GetAllSuburbs() => Suburbs;
 
