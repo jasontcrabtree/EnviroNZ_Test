@@ -1,32 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using aspnet_api.Models;
+using Microsoft.Extensions.Logging;
 
 namespace aspnet_api.Services
 {
     public class SuburbService
     {
+        private static List<Suburb>? Suburbs { get; set; }
+        private static ILogger<SuburbService>? logger;
 
-        static List<Suburb>? Suburbs = new List<Suburb>();
-        static SuburbService()
+        public SuburbService(ILogger<SuburbService> logger)
         {
-            var json = File.ReadAllText("Data/Suburb.json");
-            Suburbs = JsonSerializer.Deserialize<List<Suburb>>(json);
+            SuburbService.logger = logger;
+            InitializeSuburbs();
         }
+
+        private static void InitializeSuburbs()
+        {
+            try
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "data", "suburb.json");
+                var json = File.ReadAllText(filePath);
+                Suburbs = JsonSerializer.Deserialize<List<Suburb>>(json);
+                logger?.LogInformation("Successfully loaded suburbs.");
+                Console.WriteLine(Directory.GetCurrentDirectory());
+            }
+            catch (FileNotFoundException ex)
+            {
+                logger?.LogError(ex, "Suburb data file not found.");
+            }
+            catch (JsonException ex)
+            {
+                logger?.LogError(ex, "Error deserializing suburb data.");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError(ex, "Unexpected error loading suburb data.");
+            }
+        }
+
         public static List<Suburb>? GetAllSuburbs() => Suburbs;
 
         public Suburb FindClosestSuburb(double latitude, double longitude)
         {
-
-            var OrderedSuburbs = Suburbs?.OrderBy(suburb => GetDistance(suburb.Latitude, suburb.Longitude, latitude, longitude))
+            var closestSuburb = Suburbs?.OrderBy(suburb => GetDistance(suburb.Latitude, suburb.Longitude, latitude, longitude))
                             .FirstOrDefault();
 
-            if (OrderedSuburbs == null)
+            if (closestSuburb == null)
             {
                 throw new Exception("No suburb found");
             }
 
-            return OrderedSuburbs;
+            return closestSuburb;
         }
 
         private double GetDistance(double lat1, double lon1, double lat2, double lon2)
