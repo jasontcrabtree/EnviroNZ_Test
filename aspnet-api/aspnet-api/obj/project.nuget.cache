@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZkTHQMeyC2HXfbgnYG3HlAr4uS6SlyBsHDnBRxHUFazhaHbGvV+MfG3kf5h7r9cV+WowSJeex2YxqWvMsEWbjw==",
+  "dgSpecHash": "mCW+PrRfIyxK5A7Uom+Rab9N8yGB27dCHjdVYwmwJOcBK6oEScN3K3azj9pe7n8ob9EpF4vctk3UzI6mRjVS5Q==",
   "success": true,
   "projectFilePath": "/Users/jasontcrabtree/dev/2024-projects/EnviroNZ_Test/aspnet-api/aspnet-api/aspnet-api.csproj",
-  "expectedPackageFiles": [
-    "/Users/jasontcrabtree/.nuget/packages/microsoft.netcore.app.ref/6.0.25/microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "/Users/jasontcrabtree/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.25/microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
-    "/Users/jasontcrabtree/.nuget/packages/microsoft.netcore.app.host.osx-x64/6.0.25/microsoft.netcore.app.host.osx-x64.6.0.25.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
