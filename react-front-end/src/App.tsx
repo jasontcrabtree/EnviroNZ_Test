@@ -8,25 +8,31 @@ type Suburb = {
   longitude: number;
 };
 
-const API_ENDPOINT = `http://localhost:3001/api`;
+const API_ENDPOINT = `http://localhost:5015/api`;
 
 function App() {
   const [suburbName, setSuburbName] = useState<string>("");
 
   const handleFetchSuburb = async (e: React.FormEvent) => {
+    console.log('Form submitted')
     e.preventDefault();
 
     const formData = new FormData(e.target as HTMLFormElement);
 
-    const response = await fetch(`API_ENDPOINT?latitude=${formData.get('latitude')}&longitude=${formData.get('longitude')}`, {
-      method: "GET",
-    })
+    // const response = await fetch(`${API_ENDPOINT}/suburb/search?latitude=${formData.get('latitude')}&longitude=${formData.get('longitude')}`, {
+    //   method: "GET",
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    // })
+    const response = await fetch(`${API_ENDPOINT}/suburb/`,)
 
     if (!response.ok) throw new Error("Failed to fetch suburb data")
 
-    const suburb: Suburb = await response.json();
+    const suburbs: Suburb[] = await response.json();
+    console.log('suburbs', suburbs)
 
-    setSuburbName(suburb.suburbName);
+    setSuburbName(suburbs[0].suburbName);
   }
 
   return (

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace SuburbSearch.Controllers;
 
 [ApiController]
-[Route("[api/controller]")]
+[Route("api/[controller]")]
 
 public class SuburbController(SuburbService suburbService) : ControllerBase
 {
@@ -30,6 +30,4 @@ public class SuburbController(SuburbService suburbService) : ControllerBase
 
         return Ok(closestSuburb);
     }
-
-
 }
