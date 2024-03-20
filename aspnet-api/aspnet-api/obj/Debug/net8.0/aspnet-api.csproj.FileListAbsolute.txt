@@ -24,3 +24,4 @@
 /Users/jasontcrabtree/dev/2024-projects/EnviroNZ_Test/aspnet-api/aspnet-api/obj/Debug/net8.0/aspnet-api.pdb
 /Users/jasontcrabtree/dev/2024-projects/EnviroNZ_Test/aspnet-api/aspnet-api/obj/Debug/net8.0/aspnet-api.genruntimeconfig.cache
 /Users/jasontcrabtree/dev/2024-projects/EnviroNZ_Test/aspnet-api/aspnet-api/obj/Debug/net8.0/ref/aspnet-api.dll
+/Users/jasontcrabtree/dev/2024-projects/EnviroNZ_Test/aspnet-api/aspnet-api/bin/Debug/net8.0/Data/Suburb.json

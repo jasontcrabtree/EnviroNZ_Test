@@ -1,20 +1,35 @@
+using aspnet_api.Models;
+using aspnet_api.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Suburb.Controllers;
+namespace SuburbSearch.Controllers;
 
 [ApiController]
-[Route("[suburb]")]
+[Route("[api/controller]")]
 
-public class SuburbController : ControllerBase
+public class SuburbController(SuburbService suburbService) : ControllerBase
 {
-    private readonly ILogger<SuburbController> _logger;
+    private readonly SuburbService _suburbService = suburbService;
 
-    public SuburbController(ILogger<SuburbController> logger)
+    // Fetch all suburbs
+    [HttpGet]
+    public IEnumerable<Suburb>? Get()
     {
-        _logger = logger;
+        return SuburbService.GetAllSuburbs();
     }
 
+    // Search suburbs by ordered latitude/longitude
+    [HttpGet("search")]
+    public IActionResult GetClosestSuburb([FromQuery] double latitude, [FromQuery] double longitude)
+    {
+        var closestSuburb = _suburbService.FindClosestSuburb(latitude, longitude);
+        if (closestSuburb == null)
+        {
+            return NotFound("No suburbs found.");
+        }
 
-    [HttpGet]
+        return Ok(closestSuburb);
+    }
+
 
 }
